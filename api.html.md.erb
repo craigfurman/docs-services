@@ -337,11 +337,30 @@ Valid values for `state` are `in progress`, `succeeded`, and `failed`. Cloud Fou
 ### Request ###
 
 ##### Route #####
-`GET /v2/service_instances/:instance_id/last_operation`
+`GET /v2/service_instances/:instance_id/last_operation?operation=:operation_type`
+
+##### Query Parameters #####
+
+<table border="1" class="nice">
+<thead>
+<tr>
+  <th>Query parameter</th>
+  <th>Type</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>operation</td>
+  <td>string</td>
+  <td>The operation type that is being polled. The three possible values are: `create`, `update` and `delete`.</td>
+</tr>
+</tbody>
+</table>
 
 ##### cURL #####
 <pre class="terminal">
-$ curl http://username:password@broker-url/v2/service_instances/:instance_id/last_operation
+$ curl http://username:password@broker-url/v2/service_instances/:instance_id/last_operation?operation=:operation_type
 </pre>
 
 ### Response ###
